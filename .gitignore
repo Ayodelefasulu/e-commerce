@@ -23,3 +23,15 @@ coverage.xml
 *.log
 db.sqlite3
 db.sqlite3-journal
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Logs directory
+logs/
+
+IMPLEMENTATION_SUMMARY.md
+NEXT_STEPS.md
+SECURITY_REVIEW.md
