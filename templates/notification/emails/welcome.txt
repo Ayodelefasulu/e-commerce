@@ -1,0 +1,21 @@
+Welcome to Our E-commerce Platform!
+
+Hello {{ user.username }}!
+
+Thank you for joining our e-commerce platform. We're excited to have you on board!
+
+Your account has been successfully created with the following details:
+- Username: {{ user.username }}
+- Email: {{ user.email }}
+
+You can now start shopping and enjoy our amazing products and services.
+
+If you have any questions or need assistance, please don't hesitate to contact our support team.
+
+Best regards,
+The E-commerce Team
+
+---
+This is an automated email. Please do not reply to this message.
+© 2024 E-commerce Platform. All rights reserved.
+

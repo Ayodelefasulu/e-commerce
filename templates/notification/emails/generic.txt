@@ -1,0 +1,12 @@
+{{ notification.title }}
+
+Hello {{ user.username }}!
+
+{{ notification.message }}
+
+Best regards,
+The E-commerce Team
+
+---
+This is an automated email. Please do not reply to this message.
+

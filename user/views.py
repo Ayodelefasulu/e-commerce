@@ -7,6 +7,7 @@ from .serializers import CustomUserSerializer, RegisterSerializer, LoginSerializ
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.response import Response
 from rest_framework import status
+from notification.services import NotificationService
 
 
 
@@ -36,6 +37,15 @@ class RegisterView(generics.CreateAPIView):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         user = serializer.save()
+
+        # Send welcome email notification
+        try:
+            NotificationService.send_welcome_email(user)
+        except Exception as e:
+            # Log error but don't fail registration if email fails
+            import logging
+            logger = logging.getLogger(__name__)
+            logger.error(f"Failed to send welcome email to {user.email}: {str(e)}")
 
         refresh = RefreshToken.for_user(user)
 

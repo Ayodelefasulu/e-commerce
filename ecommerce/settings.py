@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'category',
     'tracking',
     'payment',
+    'notification',
 ]
 
 REST_FRAMEWORK = {
@@ -225,3 +226,18 @@ LOGGING = {
 
 # Create logs directory if it doesn't exist
 os.makedirs(BASE_DIR / 'logs', exist_ok=True)
+
+# Email Configuration
+EMAIL_BACKEND = config('EMAIL_BACKEND', default='django.core.mail.backends.console.EmailBackend')
+EMAIL_HOST = config('EMAIL_HOST', default='smtp.gmail.com')
+EMAIL_PORT = config('EMAIL_PORT', default=587, cast=int)
+EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=True, cast=bool)
+EMAIL_USE_SSL = config('EMAIL_USE_SSL', default=False, cast=bool)
+EMAIL_HOST_USER = config('EMAIL_HOST_USER', default='')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default='')
+DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL', default='noreply@ecommerce.com')
+SERVER_EMAIL = DEFAULT_FROM_EMAIL
+
+# For development, use console backend (emails print to console)
+# For production, set EMAIL_BACKEND to 'django.core.mail.backends.smtp.EmailBackend'
+# and configure EMAIL_HOST, EMAIL_PORT, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD
