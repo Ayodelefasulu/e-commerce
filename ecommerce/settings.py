@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
+    'django_extensions',  # For show_urls command (like Laravel's route:list)
     #'redisboard',
     
 
